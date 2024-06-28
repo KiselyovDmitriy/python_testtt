@@ -1,15 +1,25 @@
-my_dict = {"Имя": "Алексей", "Год рождения": 1990}
-print(my_dict)
 
-print(my_dict.get("Имя"))  # Выведет значение по ключу "Имя"
-print(my_dict.get("Профессия"))  # Выведет None без ошибки
+#Вам необходимо решить задачу из реальной жизни: "школьные учителя устали подсчитывать
+# вручную средний балл каждого ученика, поэтому вам предстоит автоматизировать этот процесс":
+#На вход даны следующие данные:
+grades = [[5, 3, 3, 5, 4], [2, 2, 2, 3], [4, 5, 5, 2], [4, 4, 3], [5, 5, 5, 4, 5]]
+students = {'Johnny', 'Bilbo', 'Steve', 'Khendrik', 'Aaron'}
 
-my_dict["Город"] = "Москва"
-my_dict["Хобби"] = "футбол"
 
-print(my_dict)
+# Напишите программу, которая составляет словарь, используя grades и students,
+# где ключом будет имя ученика, а значением - его средний балл.
+result = dict(zip(sorted(students), map(lambda x: sum(x) / len(x), grades)))
 
-value_deleted = my_dict.pop("Год рождения")
-print(value_deleted)
+# Выводим результат
+print(result)
 
-print(my_dict)
+
+# Второй вариант решения
+# result = {}
+# for i, student in enumerate(students):
+#     grades_sum = sum(grades[i])
+#     grades_len = len(grades[i])
+#     avg_grade = grades_sum / grades_len
+#     result[student] = avg_grade
+#
+# print(result)
